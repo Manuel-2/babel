@@ -1,0 +1,114 @@
+body {
+  background: gray;
+  display: block;
+  height: fit-content;
+  padding-top: 200px;
+
+  animation: none;
+  background-image: repeating-linear-gradient(-45deg,
+      #6BB4EE 0 25px,
+      #5ea5e0 25px 50px);
+
+
+}
+
+main {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../imgs/Tower.svg');
+  background-repeat: no-repeat;
+  position: relative;
+
+  background-position-x: center;
+  background-position-y: 0;
+}
+
+
+.card {
+  margin: 150px;
+  background-color: white;
+  padding: 20px 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.card>ul {
+  margin: 15px 0;
+}
+
+.card>a {
+  display: block;
+  width: fit-content;
+}
+
+.tracker {
+  position: absolute;
+  right: 150px;
+  top: 200px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+  height: fit-content;
+}
+
+.tracker ul {
+  list-style: none;
+}
+
+.tracker ul>li {
+  margin-top: 10px;
+}
+
+.tracker a {
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+  border: 2px solid var(--purple-ligth);
+  width: 100%;
+  padding: 10px 5px;
+}
+
+
+
+.bar {
+  height: 15px;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bar-fill {
+  z-index: 1;
+  width: calc(100%/3*2);
+  /* TODO:: cuuando alteres el width con js, colocale el border bottom radius a 0px cuando su valor sea diferente a 3/3 */
+  border-bottom-right-radius: 15px;
+}
+
+
+footer {
+  padding: 50px 0px;
+  background-image: url("../imgs/CheckboardPatternGreen.svg");
+  background-repeat: repeat;
+  background-size: 100px;
+  height: 150px;
+  /* background-color: var(--green); */
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+
+footer>a {
+  color: var(--clear);
+  font-weight: bold;
+}
