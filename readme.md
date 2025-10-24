@@ -1,0 +1,1 @@
+Actualmente esta desordenado la estructura del proyecto, ya vere luego como usaremos php, si tendremos el front por separado y que interactue con una API hecha en php, o que php pueble de datos y renderize el html

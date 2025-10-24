@@ -1,0 +1,175 @@
+/* Exercises */
+.exercice-container {
+  background-color: var(--clear);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 40px 40px 40px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar--fill {
+  z-index: 1;
+  width: calc(100%/3*2);
+  /* TODO:: cuuando alteres el width con js, colocale el border bottom radius a 0px cuando su valor sea diferente a 3/3 */
+  border-bottom-right-radius: 15px;
+}
+
+.anwsers {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.anwser-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+  cursor: pointer;
+
+  height: 64px;
+  margin: 20px 0;
+  padding: 5px 15px;
+
+  border: none;
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+.anwsers .selected {
+  transition: none 2s;
+  transform: scale(1, 1);
+  cursor: text;
+}
+
+.anwsers .not-selected {
+  transition: none 2s;
+  transform: scale(1, 1);
+  cursor: text;
+}
+
+.anwser-option>img{
+  position: relative;
+  bottom: -4px;
+  display: none;
+}
+
+.anwser-option.wrong>img[alt='wrong']{
+  display: block;
+}
+.anwser-option.wrong>img[alt='correct']{
+  display: none;
+}
+
+.anwser-option.correct>img[alt='correct']{
+  display: block;
+}
+
+.anwser-option.correct>img[alt='wrong']{
+  display: none;
+}
+
+.anwsers .not-selected:nth-child(1) {
+  background-color: var(--red-dark);
+}
+
+.anwsers .not-selected:nth-child(2) {
+  background-color: var(--green-dark);
+}
+
+.anwsers .not-selected:nth-child(3) {
+  background-color: var(--blue-dark);
+}
+
+/* A B C */
+.anwser-option::before {
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.anwser-option:nth-child(1) {
+  background-color: var(--red);
+}
+
+/* .anwser-option:nth-child(1)::before { */
+/*   content: "A)"; */
+/* } */
+
+.anwser-option:nth-child(2) {
+  background-color: var(--green);
+}
+
+/* .anwser-option:nth-child(2)::before { */
+/*   content: "B)"; */
+/* } */
+
+.anwser-option:nth-child(3) {
+  background-color: var(--blue);
+}
+
+/* .anwser-option:nth-child(3)::before { */
+/*   content: "C)"; */
+/* } */
+
+/* Controls */
+.control-left {
+  position: absolute;
+  top: calc(50% - (140px)/2);
+  background-color: var(--clear);
+  left: -75px;
+  height: 140px;
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.control-left>.button {
+  cursor: pointer;
+  position: relative;
+  right: 0;
+  background-color: var(--clear);
+  border: none;
+  transition: none 0s;
+  transform: scale(-1, 1);
+}
+
+.control-rigth {
+  position: absolute;
+  top: calc(50% - (140px)/2);
+  background-color: var(--clear);
+  right: -75px;
+  height: 140px;
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.control-rigth>.button {
+  cursor: pointer;
+  transition: none;
+  position: relative;
+  left: 0;
+  background-color: var(--clear);
+  border: none;
+  transition: none;
+  transform: scale(1, 1);
+}
