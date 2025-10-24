@@ -5,7 +5,7 @@
   --desktop-h2-fontsize: 3.0rem;
   --desktop-h3-fontsize: 2.8rem;
   --desktop-h4-fontsize: 2.0rem;
-  --desktop-paragraph-fontsize: 1.8rem;
+  --desktop-paragraph-fontsize: 1.9rem;
 
   --mobile-h1-fontsize: 2.4rem;
   --mobile-h2-fontsize: 2.2rem;
@@ -59,6 +59,10 @@ h4 {
   font-size: var(--desktop-h4-fontsize);
 }
 
+.paragraph {
+  font-size: var(--desktop-paragraph-fontsize);
+}
+
 @media only screen and (max-width: 680px) {
 
   .h1,
@@ -80,10 +84,26 @@ h4 {
   h4 {
     font-size: var(--mobile-h4-fontsize);
   }
+
+  .paragraph {
+    font-size: var(--mobile-paragraph-fontsize);
+  }
+
 }
 
-.soft-shadow {
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+/*BG and colors */
+.bg-blue {
+  background-color: var(--blue);
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.bg-green {
+  background-color: var(--green);
+
 }
 
 .bg-purple-ligth {
@@ -94,6 +114,11 @@ h4 {
   background-color: var(--purple-strong);
 }
 
+.soft-shadow {
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+/* Buttons */
 button,
 .buutton {
   cursor: pointer;
@@ -103,6 +128,24 @@ button,
 button:hover,
 .button:hover {
   transform: scale(1.05);
+}
+
+
+.main-button {
+  color: var(--clear);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.secondary-button {
+  color: var(--dark);
+  border: solid 2px var(--dark);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 body {
