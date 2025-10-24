@@ -20,6 +20,7 @@
   --purple-strong: #AF3CFF;
   --purple-ligth: #E4C4FF;
 
+  --yelow: #FFC62C;
   --red: #E23535;
   --red-dark: #9F2525;
   --green: #34B347;
@@ -93,6 +94,18 @@ h4 {
 
 
 /*BG and colors */
+.bg-clear {
+  background-color: var(--clear);
+}
+
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.bg-yellow{
+  background-color: var(--yelow);
+}
+
 .bg-blue {
   background-color: var(--blue);
 }
@@ -143,7 +156,6 @@ button:hover,
   color: var(--dark);
   border: solid 2px var(--dark);
   padding: 10px;
-  border: none;
   border-radius: 8px;
   cursor: pointer;
 }
