@@ -102,7 +102,7 @@ h4 {
   background-color: var(--dark);
 }
 
-.bg-yellow{
+.bg-yellow {
   background-color: var(--yelow);
 }
 
@@ -167,7 +167,7 @@ body {
   animation-name: "background-pane";
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-duration: 5s;
+  animation-duration: 6s;
   display: flex;
   align-items: center;
   height: 100vh;
@@ -195,7 +195,6 @@ header {
   justify-content: space-between;
 }
 
-
 @media only screen and (min-width: 1555px) {
   header {
     left: calc(100vw/2 - 1400px/2);
@@ -219,6 +218,7 @@ header a {
   align-items: center;
   justify-content: space-between;
   border-radius: 100px;
+  position: relative;
 }
 
 .header-left>div:nth-child(2)>ul {
@@ -262,4 +262,115 @@ header a {
   padding-left: 20px;
   align-items: center;
   cursor: pointer;
+}
+
+
+/* Header burger menu*/
+.burger-container {
+  position: absolute;
+  right: 0;
+}
+
+#burger-check {
+  display: none;
+  z-index: 5;
+}
+
+.burger {
+  --spacing: 5px;
+  --border-line-heigth: 5px;
+  --burger-color: var(--yelow);
+
+  /* display: inline-block; */
+  display: none;
+  border: 0;
+  background: none;
+  outline: 0;
+  padding: 0;
+  cursor: pointer;
+  width: 0;
+
+  margin: 0 20px;
+  border-bottom: var(--border-line-heigth) solid var(--burger-color);
+
+  transition: border-bottom 1s ease-in-out;
+  -webkit-transition: border-bottom 1s ease-in-out;
+}
+
+.burger::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.burger::before {
+  content: "";
+  display: block;
+  border-bottom: var(--border-line-heigth) solid var(--burger-color);
+  margin-bottom: var(--spacing);
+
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+
+.burger::after {
+  content: "";
+  display: block;
+  border-bottom: var(--border-line-heigth) solid var(--burger-color);
+  margin-bottom: var(--spacing);
+
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+}
+
+.burger-nav {
+  position: absolute;
+  top: 50px;
+  left: -100px;
+  background-color: white;
+  border-radius: 5px;
+  /* padding: 5px 10px; */
+  min-width: 150px;
+  overflow: clip;
+
+  max-height: 0px;
+  transition: max-height 0.5s;
+}
+
+.burger-nav>ul {
+  list-style: none;
+}
+
+.burger-nav>ul>li {
+  margin: 15px;
+}
+
+.burger-nav>ul>li>a {
+  display: block;
+  text-decoration: underline;
+  text-align: end;
+  width: 100%;
+}
+
+@media only screen and (max-width:600px) {
+  /* Header */
+
+
+  /* thinks to show */
+  .burger-container>.burger {
+    display: inline-block;
+    width: 35px;
+  }
+
+  #burger-check:checked+.burger-nav {
+    max-height: 200px;
+    z-index: 5;
+  }
+
+
+  /* Thinks to hide */
+  .header-left>div:nth-child(2),
+  .header-rigth {
+    display: none;
+  }
+
 }

@@ -8,10 +8,12 @@ body {
   height: fit-content;
   padding-top: 200px;
 
-  animation: none;
+  --background-tile-size: 140px;
+  /* animation: none; */
   background-image: repeating-linear-gradient(-45deg,
       #6BB4EE 0 25px,
       #5ea5e0 25px 50px);
+  background-size: var(--background-tile-size) var(--background-tile-size);
 }
 
 main {
@@ -95,7 +97,8 @@ main {
   align-items: flex-end;
 }
 
-.tracker>h3, .tracker>p{
+.tracker>h3,
+.tracker>p {
   width: 100%;
 }
 
@@ -117,7 +120,7 @@ main {
   padding: 10px 5px;
 }
 
-.tracker>a{
+.tracker>a {
   display: block;
   width: fit-content;
 }
@@ -163,7 +166,7 @@ footer>a {
 
 
 @media only screen and (max-width:1100px) {
-  body{
+  body {
     padding-top: 100px;
   }
 
