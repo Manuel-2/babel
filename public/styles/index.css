@@ -4,9 +4,11 @@ body {
   background: none;
   height: fit-content;
 
+  --background-tile-size: 140px;
   background-image: repeating-linear-gradient(-45deg,
       #6BB4EE 0 25px,
       #5ea5e0 25px 50px);
+  background-size: 140px 140px;
 }
 
 main {
@@ -101,7 +103,7 @@ card>p {
 
 
 @media only screen and (max-width: 680px) {
-  body{
+  body {
     padding-top: 150px;
   }
 
@@ -129,7 +131,7 @@ card>p {
     background-position: center;
   }
 
-  .hero-card{
+  .hero-card {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 15px;
