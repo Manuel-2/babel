@@ -92,6 +92,11 @@ h4 {
 
 }
 
+/* Utility */
+.hidden{
+  display: none;
+}
+
 
 /*BG and colors */
 .bg-clear {
@@ -133,14 +138,16 @@ h4 {
 
 /* Buttons */
 button,
-.buutton {
+.button {
   cursor: pointer;
-  transition: transform 200ms;
+  transition: transform 0.2s;
+  transform: scale(1);
 }
 
 button:hover,
 .button:hover {
-  transform: scale(1.05);
+  transition: transform 0.2s;
+  transform: scale(1.1);
 }
 
 
@@ -208,6 +215,10 @@ header>div {
 header a {
   text-decoration: none;
   color: var(--dark);
+}
+
+header>.header-left>div:nth-child(2) a:hover {
+  text-decoration: underline;
 }
 
 .header-left {
