@@ -160,8 +160,8 @@ button:hover,
 }
 
 .secondary-button {
-  color: var(--dark);
-  border: solid 2px var(--dark);
+  color: var(--blue-dark); 
+  /* border: solid 2px var(--dark); */
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;

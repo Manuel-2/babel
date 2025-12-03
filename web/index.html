@@ -10,52 +10,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link href="../public/styles/normalize.css" rel="stylesheet">
-  <link href="../public/styles/babel.css" rel="stylesheet">
+  <link href="./assets/styles/normalize.css" rel="stylesheet">
+  <link href="./assets/styles/babel.css" rel="stylesheet">
 
   <!-- estillos especificos de esta vista  -->
-  <link href="../public/styles/index.css" rel="stylesheet">
+  <link href="./assets/styles/index.css" rel="stylesheet">
 </head>
 
 <body>
-  <header class="header">
-    <div class="header-left soft-shadow">
-      <div>
-        <a class="header-logo" href="dashboard.html">
-          <img src="../public/imgs/Logo.svg" alt="">
-          <h3 class="h3">babel</h3>
-        </a>
-      </div>
-      <div>
-        <ul>
-          <li><a class="h4" href="./dashboard.html">Inicio</a></li>
-          <li><a class="h4" href="#">Acerca</a></li>
-        </ul>
-      </div>
-      <div class="burger-container">
-        <label for="burger-check" class="burger"></label>
-        <input type="checkbox" id="burger-check">
-        <nav class="burger-nav soft-shadow h4">
-          <ul>
-            <li><a href="dashboard.html">Inicio</a></li>
-            <li><a href="#">Acerca</a></li>
-            <li class="hidden"><a href="#">Cerrar Sesíon</a></li>
-            <li><a href="setup.html">Ajustes</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <div class="header-rigth">
-      <button type="button" class="soft-shadow hidden"><img src="../public/imgs/Logout Icon.svg" alt=""></button>
-      <a href="#" class="soft-shadow h4 button">Ajustes</a>
-    </div>
-  </header>
-
+  <?php require_once(./assets/components/header.html"); ?> 
   <main>
     <article>
       <section class="hero">
-        <img class="hero-image" src="../public/imgs/Tower.svg"></img>
+        <img class="hero-image" src="./assets/imgs/Tower.svg"></img>
         <div class="hero-card">
           <h1><span>Practica idiomas con ejercicios usando babel!</span></h1>
           <p class="h3"> <span>Aprende un nuevo idioma de manera fácil y organizada. Nuestra inteligencia artificial
@@ -71,7 +38,7 @@
     </article>
     <article class="features">
       <div class="card">
-        <img src="../public/imgs/Check.svg" alt="up arrow">
+        <img src="./assets/imgs/Check.svg" alt="up arrow">
         <h3>Practica</h3>
         <p class="h4">Resuelve ejercicios de opcion multiple y obten feedback instaneamente</p>
       </div>
@@ -82,7 +49,7 @@
       </div>
 
       <div class="card">
-        <img src="../public/imgs/phone.svg" alt="up arrow">
+        <img src="./assets/imgs/phone.svg" alt="up arrow">
         <h3>Portatil</h3>
         <p class="h4">Dispoinble en version web para escritorio y movil</p>
       </div>

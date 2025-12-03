@@ -47,6 +47,11 @@
   box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
+.anwser-option:hover{
+  transform: scale(1.025);
+  background-color: blue;
+}
+
 .anwsers .selected {
   transition: none 2s;
   transform: scale(1, 1);
