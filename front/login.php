@@ -62,7 +62,7 @@ if (isset($_SESSION['autenticated'])) {
   <main>
     <h1>Iniciar Sesión</h1>
     <!-- todo: colocar la url/endpoint  -->
-    <form action="#" method="post" id="form">
+    <form action="/api/sessions" method="post" id="form">
       <label for="email-input" class="h3">Correo Electronico:</label>
       <input type="email" id="email-input" name="email" value="" placeholder="correo@email.com" class="h3">
       <label for="password-input" class="h3">Contraseña:</label>
@@ -78,31 +78,23 @@ if (isset($_SESSION['autenticated'])) {
       let method = event.target.method;
       let endpoint = event.target.action;
       let formData = new FormData(form);
-      let password = formData.get('password');
-      let confirm = formData.get('confirm');
 
-      if (password === confirm) {
-        (async function() {
-          let req = {
-            method,
-            credentials: 'include',
-            body: formData,
-            redirect: 'follow'
-          };
-          let res = await fetch(endpoint, req);
-          let data = await res.json();
+      (async function() {
+        let req = {
+          method,
+          credentials: 'include',
+          body: formData,
+        };
+        let res = await fetch(endpoint, req);
+        let data = await res.json();
 
-          if (res.status >= 200 <= 300) {
-            //TODO: llamar a un metodo para mostrar le modal de alerta, le aparece un boton log in y lo redirije al clidk
-            window.location.href = './login.php';
-          } else {
-            //TODO: llamar a un metodo para mostrar le modal de alerta
-          }
-          console.log(data);
-        })();
-      } else {
-        //TODO: llamar a un metodo para mostrar le modal de alerta
-      }
+        console.log(data);
+        if (res.status >= 200 <= 300) {
+          //TODO: llamar a un metodo para mostrar le modal de alerta, le aparece un boton log in y lo redirije al clidk
+        } else {
+          //TODO: llamar a un metodo para mostrar le modal de alerta
+        }
+      })();
     });
   </script>
 

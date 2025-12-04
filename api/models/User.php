@@ -19,11 +19,32 @@ class User
     $hash = password_hash($password, PASSWORD_BCRYPT);
 
     try {
-      $id = DbConnector::insertStatement("INSERT INTO users (name, email, password, recovery_token) VALUES ('$this->name', '$this->email', '$hash', '$recoveryToken')");
+      $sql = "INSERT INTO users (name, email, password, recovery_token)
+                VALUES (:name, :email, :password, :recovery_token)";
+
+      $id = DbConnector::insertStatement($sql, [
+        'name' => $this->name,
+        'email' => $this->email,
+        'password' => $hash,
+        'recovery_token' => $recoveryToken
+      ]);
+
       $this->id = $id;
     } catch (Exception $e) {
       $GLOBALS['serverError']($e);
     }
+  }
+
+  public static function findUserByEmail($email)
+  {
+    $result = DbConnector::statement("select * from users where users.email = \"$email\"");
+    return $result[0];
+  }
+
+  public static function getPasswordHashByEmail($email)
+  {
+    $result = DbConnector::statement("select password from users where users.email = \"$email\"");
+    return $result[0]['password'];
   }
 
   // public static function findById($id): User

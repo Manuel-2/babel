@@ -43,11 +43,11 @@ class DbConnector
     return $data;
   }
 
-  public static function insertStatement(string $sql)
+  public static function insertStatement(string $sql, $params)
   {
     $db = self::getInstance();
     $statement = $db->con->prepare($sql);
-    $statement->execute();
+    $statement->execute($params);
     $id = $db->con->lastInsertId();
     return $id;
   }

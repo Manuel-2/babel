@@ -9,7 +9,9 @@ require('./core/Router.php');
 require('./core/Endpoint.php');
 require('./core/Response.php');
 require('./core/DbConnector.php');
+
 require('./controllers/UserController.php');
+require('./controllers/SessionController.php');
 
 // ------- setup global (config, and fuctions)-------------------------------------------
 require('./globals.php');
@@ -22,8 +24,8 @@ $router->add(new Endpoint('GET', '/users', UserController::class, 'showUser'));
 
 // Autentication related
 $router->add(new Endpoint('POST', '/users', UserController::class, 'create', false));
-$router->add(new Endpoint('POST', '/session', $router, 'login', false));
-$router->add(new Endpoint('DELETE', '/session', $router, 'logout', true));
+$router->add(new Endpoint('POST', '/sessions', SessionController::class, 'login', false));
+$router->add(new Endpoint('DELETE', '/sessions', SessionController::class, 'logout', true));
 
 try {
   $res = $router->handleRequest();
