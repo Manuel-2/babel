@@ -25,40 +25,8 @@ if (isset($_SESSION['autenticated'])) {
 </head>
 
 <body>
-  <header class="header">
-    <div class="header-left soft-shadow">
-      <div>
-        <a class="header-logo" href="dashboard.html">
-          <img src="assets/imgs/Logo.svg" alt="">
-          <h3 class="h3">babel</h3>
-        </a>
-      </div>
-      <div>
-        <ul>
-          <li><a class="h4" href="./dashboard.html">Inicio</a></li>
-          <li><a class="h4" href="#">Acerca</a></li>
-        </ul>
-      </div>
-
-      <div class="burger-container">
-        <label for="burger-check" class="burger"></label>
-        <input type="checkbox" id="burger-check">
-        <nav class="burger-nav soft-shadow h4">
-          <ul>
-            <li><a href="dashboard.html">Inicio</a></li>
-            <li><a href="#">Acerca</a></li>
-            <li><a href="#">Cerrar Sesíon</a></li>
-            <li><a href="setup.html">Ajustes</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <div class="header-rigth">
-      <button type="button" class="soft-shadow"><img src="assets/imgs/Logout Icon.svg" alt=""></button>
-      <a href="#" class="soft-shadow h4 button">Ajustes</a>
-    </div>
-  </header>
-
+  <?php require_once("./assets/components/header.php"); ?>
+  
   <main>
     <h1>Iniciar Sesión</h1>
     <!-- todo: colocar la url/endpoint  -->
@@ -88,9 +56,8 @@ if (isset($_SESSION['autenticated'])) {
         let res = await fetch(endpoint, req);
         let data = await res.json();
 
-        console.log(data);
-        if (res.status >= 200 <= 300) {
-          //TODO: llamar a un metodo para mostrar le modal de alerta, le aparece un boton log in y lo redirije al clidk
+        if (res.status == 201) {
+            window.location.href = './dashboard.php';
         } else {
           //TODO: llamar a un metodo para mostrar le modal de alerta
         }

@@ -27,5 +27,9 @@ class SessionController
     }
   }
 
-  public function logout() {}
+  public function logout()
+  {
+    session_destroy();
+    return new Response(200, ['message' => 'Session cerrada']);
+  }
 }

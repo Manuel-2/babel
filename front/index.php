@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <?php require_once("./assets/components/header.html"); ?>
+  <?php require_once("./assets/components/header.php"); ?>
   <main>
     <article>
       <section class="hero">

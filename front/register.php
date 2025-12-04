@@ -24,7 +24,7 @@ if (isset($_SESSION['autenticated'])) {
 </head>
 
 <body>
-  <?php require_once("./assets/components/header.html"); ?>
+  <?php require_once("./assets/components/header.php"); ?>
 
   <main style="margin-top: 80px;">
     <h1>Registro</h1>
@@ -57,7 +57,6 @@ if (isset($_SESSION['autenticated'])) {
             method,
             credentials: 'include',
             body: formData,
-            redirect: 'follow'
           };
           let res = await fetch(endpoint, req);
           let data = await res.json();
@@ -68,7 +67,6 @@ if (isset($_SESSION['autenticated'])) {
           }else{
             //TODO: llamar a un metodo para mostrar le modal de alerta
           }
-          console.log(data);
         })();
       } else {
         //TODO: llamar a un metodo para mostrar le modal de alerta

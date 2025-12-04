@@ -27,7 +27,25 @@
   </div>
 
   <div class="header-rigth">
-    <button type="button" class="soft-shadow"><img src="./assets/imgs/Logout Icon.svg" alt=""></button>
+    <?php if(isset($_SESSION['autenticated'])){?>
+    <button type="button" class="soft-shadow" id="logoutBtn"><img src="./assets/imgs/Logout Icon.svg"alt="logout"></button>
+    <?php }?>
     <a href="#" class="soft-shadow h4 button">Ajustes</a>
   </div>
+
+  <script>
+    logoutBtn.addEventListener('click', async () => {
+      let req = {
+        method : "DELETE",
+        credentials: 'include',
+      };
+      let res = await fetch('/api/sessions', req);
+      let data = await res.json();
+
+      if(res.status == 200){
+        window.location.href = 'index.php';
+      }
+    });
+
+  </script>
 </header>
