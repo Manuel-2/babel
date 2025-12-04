@@ -10,11 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link href="../public/styles/normalize.css" rel="stylesheet">
-  <link href="../public/styles/babel.css" rel="stylesheet">
+  <link href="assets/styles/normalize.css" rel="stylesheet">
+  <link href="assets/styles/babel.css" rel="stylesheet">
 
   <!-- estillos especificos de esta vista  -->
-  <link href="../public/styles/main-form.css" rel="stylesheet">
+  <link href="assets/styles/main-form.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
     <div class="header-left soft-shadow">
       <div>
         <a class="header-logo" href="dashboard.html">
-          <img src="../public/imgs/Logo.svg" alt="">
+          <img src="assets/imgs/Logo.svg" alt="">
           <h3 class="h3">babel</h3>
         </a>
       </div>
@@ -47,7 +47,7 @@
       </div>
     </div>
     <div class="header-rigth">
-      <button type="button" class="soft-shadow"><img src="../public/imgs/Logout Icon.svg" alt=""></button>
+      <button type="button" class="soft-shadow"><img src="assets/imgs/Logout Icon.svg" alt=""></button>
       <a href="#" class="soft-shadow h4 button">Ajustes</a>
     </div>
   </header>
@@ -62,7 +62,7 @@
       <input type="password" id="password-input" name="password" value="" placeholder="*********" class="h3">
       <input type="submit" value="Registar" class="main-button bg-blue h3">
     </form>
-    <a href="register.html" class="h4">¿No tienes cuenta? Registrate</a>
+    <a href="register.php" class="h4">¿No tienes cuenta? Registrate</a>
   </main>
 
 </body>

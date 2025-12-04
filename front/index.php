@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <?php require_once(./assets/components/header.html"); ?> 
+  <?php require_once("./assets/components/header.html"); ?>
   <main>
     <article>
       <section class="hero">
@@ -30,8 +30,8 @@
               ti un plan
               semanal personalizado con ejercicios prácticos, preguntas interactiva a corde a tus nececidades</span></p>
           <div class="buttons">
-            <a href="login.html" class="secondary-button button h3 bg-clear">Incia Sesion</a>
-            <a href="register.html" class="main-button button h3 bg-dark">Registrate</a>
+            <a href="login.php" class="secondary-button button h3 bg-clear">Incia Sesion</a>
+            <a href="register.php" class="secondary-button button h3 bg-clear">Registrate</a>
           </div>
         </div>
       </section>
@@ -53,8 +53,6 @@
         <h3>Portatil</h3>
         <p class="h4">Dispoinble en version web para escritorio y movil</p>
       </div>
-
-
     </article>
   </main>
 </body>
