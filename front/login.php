@@ -41,13 +41,12 @@ if (isset($_SESSION['autenticated'])) {
   </main>
 
   <script>
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       let method = event.target.method;
       let endpoint = event.target.action;
       let formData = new FormData(form);
 
-      (async function() {
         let req = {
           method,
           credentials: 'include',
@@ -61,7 +60,6 @@ if (isset($_SESSION['autenticated'])) {
         } else {
           //TODO: llamar a un metodo para mostrar le modal de alerta
         }
-      })();
     });
   </script>
 

@@ -1,0 +1,23 @@
+FROM qwen2.5:latest
+
+# 0.0 a 1.0
+PARAMETER temperature 0.1
+
+PARAMETER num_ctx 2048
+
+PARAMETER repeat_penalty 1.1
+
+PARAMETER stop "<|im_end|>"
+PARAMETER stop "<|endoftext|>"
+PARAMETER stop "User:"
+
+SYSTEM """
+Eres un asistente backend encargado de generar datos estructurados.
+Tu ÚNICA tarea es responder con un objeto JSON válido basado en la petición del usuario.
+
+REGLAS DE ORO:
+1. NO escribas bloques de código markdown (nada de ```json).
+2. NO incluyas texto introductorio ni despedidas.
+3. Responde estrictamente con el string JSON raw.
+4. Si se te pide un array, devuelve: [{"clave": "valor"}]
+"""

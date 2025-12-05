@@ -12,6 +12,7 @@ require('./core/DbConnector.php');
 
 require('./controllers/UserController.php');
 require('./controllers/SessionController.php');
+require('./controllers/LearingPathController.php');
 
 // ------- setup global (config, and fuctions)-------------------------------------------
 require('./globals.php');
@@ -20,7 +21,9 @@ require('./globals.php');
 $router = new Router();
 
 // General endpoitns
-$router->add(new Endpoint('GET', '/users', UserController::class, 'showUser'));
+$router->add(new Endpoint('GET', '/users', UserController::class, 'show'));
+$router->add(new Endpoint('GET', '/learningpath', LearingPathController::class, 'show'));
+$router->add(new Endpoint('POST', '/learingpath', LearingPathController::class, 'create'));
 
 // Autentication related
 $router->add(new Endpoint('POST', '/users', UserController::class, 'create', false));

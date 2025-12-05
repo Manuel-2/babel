@@ -1,0 +1,84 @@
+{
+  "language": "Replace language here",
+  "level": "Replace level here",
+  "objective": "Replace objective here",
+  "modules": [
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    },
+    {
+      "title": "Replace module title here",
+      "submodules": [
+        {
+          "title": "Replace submodule title here"
+        },
+        {
+          "title": "Replace submodule title here"
+        }
+      ]
+    }
+  ]
+}

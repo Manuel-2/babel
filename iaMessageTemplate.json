@@ -1,0 +1,11 @@
+{
+  "model": "babel-ia:latest",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Write a learning path for the lenguage: %lenguage%, at %level% level, with the objective of learing %lenguage% vocabulary for the context of %objective% (Write all the modules and submodules about the learning the lenguage). Fill the next json template but replace the values to match the learningpath you generated: "
+    }
+  ],
+  "stream": false,
+  "format": "json"
+}

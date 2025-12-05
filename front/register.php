@@ -43,7 +43,7 @@ if (isset($_SESSION['autenticated'])) {
     <a href="./login.php" class="h4">¿Ya tienes cuenta? Inicia session</a>
   </main>
   <script>
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       let method = event.target.method;
       let endpoint = event.target.action;
@@ -52,7 +52,6 @@ if (isset($_SESSION['autenticated'])) {
       let confirm = formData.get('confirm');
 
       if (password === confirm) {
-        (async function() {
           let req = {
             method,
             credentials: 'include',
@@ -63,11 +62,10 @@ if (isset($_SESSION['autenticated'])) {
 
           if(res.status >= 200 <= 300){
             //TODO: llamar a un metodo para mostrar le modal de alerta, le aparece un boton log in y lo redirije al clidk
-            window.location.href = './login.php';
+            window.location.href = './setup.php';
           }else{
             //TODO: llamar a un metodo para mostrar le modal de alerta
           }
-        })();
       } else {
         //TODO: llamar a un metodo para mostrar le modal de alerta
       }
