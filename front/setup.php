@@ -4,6 +4,10 @@ if (isset($_SESSION['autenticated']) == false) {
   header("Location: index.php");
   die();
 }
+if(isset($_SESSION['hasLearningPath'])){
+  header("Location: dashboard.php");
+  die();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

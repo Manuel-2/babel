@@ -35,6 +35,10 @@ class User
     }
   }
 
+  public function getLearingPath(){
+    return "pendiente implementar"; 
+  }
+
   public static function findUserByEmail($email)
   {
     $result = DbConnector::statement("select * from users where users.email = \"$email\"");

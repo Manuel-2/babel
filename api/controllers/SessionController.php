@@ -20,7 +20,7 @@ class SessionController
     if ($correct) {
       session_start();
       $_SESSION['autenticated'] = true;
-      $_SESSION['userId'] = $user->id;
+      $_SESSION['userId'] = $user['id'];
       return new Response(201, ['data' => $user]);
     } else {
       return new Response(400, ['message' => 'Credenciales(Correo o contraseña) incorrectas']);

@@ -1,12 +1,14 @@
 <?php
+require(__DIR__ . '/../models/LearningPath.php');
 
 class LearingPathController
 {
 
   public function create()
   {
-    // TODO: guardar en una session un timestap con la ultima vez que se genero un plan de estudio y limita el rate
+    // TODO: guardar en una session un timestap con la ultima vez que se genero un plan de estudio y limita el rate de llamados a este metodo
 
+    //TODO: CUrar las entradas esto estA PELIGROSOOOOOOO
     $lenguage = $_POST["language"];
     $objective = $_POST["objective"];
     $level = $_POST["level"];
@@ -35,7 +37,17 @@ class LearingPathController
     $generatedlearingPath = $generatedlearingPath->message->content;
     $generatedlearingPath = json_decode($generatedlearingPath);
 
- 
+    $learingPath = new LearningPath($lenguage, $objective, $level, $generatedlearingPath->modules);
+    try {
+      $learingPath->save();
+    } catch (PDOException $e) {
+      $GLOBALS['serverError']($e);
+    }
+
+    $_SESSION['hasLearningPath'] = true;
+    return new Response(201, [
+      'message' => "Plan de estudios generado correctamente"
+    ]);
   }
 
   public function show() {}
