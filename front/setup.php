@@ -4,10 +4,6 @@ if (isset($_SESSION['autenticated']) == false) {
   header("Location: index.php");
   die();
 }
-if(isset($_SESSION['hasLearningPath'])){
-  header("Location: dashboard.php");
-  die();
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -75,8 +71,11 @@ if(isset($_SESSION['hasLearningPath'])){
       let res = await fetch(endpoint, req);
       let data = await res.json();
 
-      // TODO: mostar el modal con animacion de carga y cuandoo se genere el plan de estudios redijir al dashboard
-      console.log(data);
+      console.log(res);
+      if (res.status == 201) {
+        // TODO: mostar el modal con animacion de carga y cuandoo se genere el plan de estudios redijir al dashboard
+        window.location.href = "dashboard.php";
+      }
     });
   </script>
 </body>
