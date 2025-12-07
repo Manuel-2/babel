@@ -2,7 +2,6 @@
 
 class LearningPath
 {
-
   public string $lenguage;
   public string $level;
   public string $objective;
@@ -54,5 +53,27 @@ class LearningPath
         );
       }
     }
+  }
+
+  public static function findByUserId(int $userId)
+  {
+    $learingPathData  = DbConnector::statement("select * from learning_paths where user_id = $userId order by id")[0];
+    $learingPathID = $learingPathData['id'];
+    $modulesData = DbConnector::statement("select * from modules where learning_path_id = $learingPathID");
+
+    $learingPathData['totalProgress'] = 0;
+    foreach ($modulesData as &$module) {
+      $moduleId = $module['id'];
+      $subModulesData = DbConnector::statementWithParams("select * from sub_modules where module_id = ?", [$moduleId]);
+      $module['subModules'] = $subModulesData;
+
+      $moduleProgress = ($subModulesData[0]['progress'] + $subModulesData[1]['progress']) / 2;
+      $module['progress'] = $moduleProgress;
+      $learingPathData['totalProgress'] += $moduleProgress;
+    }
+    $learingPathData['totalProgress'] = $learingPathData['totalProgress'] / 7;
+
+    $learingPathData['modules'] = $modulesData;
+    return $learingPathData;
   }
 }

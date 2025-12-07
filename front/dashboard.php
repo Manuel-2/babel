@@ -28,161 +28,92 @@ if (isset($_SESSION['autenticated']) == false) {
   <?php require_once("./assets/components/header.php"); ?>
 
   <main>
-    <section class="days-plan">
-
-      <div class="card soft-shadow card--expanded">
-        <h4 id="day1">Day 1: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day2">Day 2: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day3">Day 3: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day4">Day 4: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day5">Day 5: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day6">Day 6: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-      <div class="card soft-shadow  ">
-        <h4 id="day7">Day 7: Pronoumns</h4>
-        <div class="card-content">
-          <ul>
-            <li class="paragraph">First Person 3/3</li>
-            <li class="paragraph">Second Person 2/3</li>
-            <li class="paragraph">Third Person 0/3</li>
-          </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.html">Practicar</a>
-        </div>
-        <!-- relativos -->
-        <div class="bar bg-purple-ligth"></div>
-        <div class="bar bar-fill bg-purple-strong"></div>
-      </div>
-
-
-
-
+    <section class="days-plan" id='daysPlanContainer'> 
     </section>
 
     <section class="tracker soft-shadow">
-      <h3>Idioma: Ingles</h3>
-      <p class="paragraph">Objetivo: Ingles para un viaje</p>
-      <p class="paragraph">Temas: 3/7</p>
-      <ul>
-        <li>
-          <a href="#day1" class="paragraph completed">day 1 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day2" class="paragraph completed">day 2 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day3" class="paragraph completed">day 3 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day4" class="paragraph">day 4 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day5" class="paragraph">day 5 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day6" class="paragraph">day 6 Pronoumns</a>
-        </li>
-        <li>
-          <a href="#day7" class="paragraph">day 7 Pronoumns</a>
-        </li>
+      <h3 id='trackerTitle'>Idioma: Ingles</h3>
+      <p id='trackerObjective' class="paragraph">Objetivo: Ingles para un viaje</p>
+      <p id='trackerProgress' class="paragraph">Temas: 3/7</p>
+      <ul id='trackerDaysContainer'>
+        
       </ul>
-      <a href="exercies.html" class="main-button bg-purple-strong h4">Reanudar</a>
+      <a href="exercies.php" class="main-button bg-purple-strong h4">Reanudar</a>
       <!-- relativos -->
       <div class=" bar bg-purple-ligth"></div>
-      <div class="bar bar-fill bg-purple-strong"></div>
-
+      <div class="bar bar-fill bg-purple-strong" id='totalProgressBar'></div>
     </section>
   </main>
   <footer>
     <!-- <a href=" ./setup.html" class="h4">Generar otro plan</a> -->
   </footer>
+  <script>
+    let dayCardTemplate = `
+      <div class="card soft-shadow" id="day%n%">
+        <h4 >Day %n%: %module_title%</h4>
+        <div class="card-content">
+          <ul>
+            <li class="paragraph">%sub_1%</li>
+            <li class="paragraph">%sub_2%</li>
+          </ul>
+          <a class="main-button bg-purple-strong h4" href="exercies.php">Practicar</a>
+        </div>
+        <!-- relativos -->
+        <div class="bar bg-purple-ligth"></div>
+        <div class="bar bar-fill bg-purple-strong" style="width:calc(%progress%%);"></div>
+      </div>`;
+
+
+    let travelButtonTemplate =`
+        <li>
+          <a href="#day%n%" class="paragraph %completed%">Dia %n% %module_title%</a>
+        </li>
+      `; 
+
+    // get learing paath data
+    (async function(){
+      let res = await fetch('/api/learningpath',{
+          credentials: 'include',
+      });
+      let data = await res.json();
+      data = data.data;
+
+      console.log(data);
+
+      for(let i = 0; i < data.modules.length; i++){
+        let mod = data.modules[i];
+        let dayNumRex = /%n%/g
+        let dayCardElement = dayCardTemplate.replace(dayNumRex,i+1);
+        dayCardElement = dayCardElement.replace('%module_title%',mod.title);
+        dayCardElement = dayCardElement.replace('%sub_1%',mod.subModules[0].title);
+        dayCardElement = dayCardElement.replace('%sub_2%',mod.subModules[1].title);
+  
+        let moduleProgress = mod.progress * 100;
+        dayCardElement = dayCardElement.replace('%progress%',moduleProgress);
+        daysPlanContainer.innerHTML += dayCardElement;
+
+
+        let dayTrackerElement = travelButtonTemplate.replace(dayNumRex,i+1);
+        dayTrackerElement = dayTrackerElement.replace("%module_title%",mod.title);
+        dayTrackerElement = dayTrackerElement.replace("%completed%",moduleProgress==100?'completed':' ');
+        trackerDaysContainer.innerHTML +=dayTrackerElement;
+      }
+
+      let cardsElements = document.getElementsByClassName('card');
+      cardsElements = Array.from(cardsElements);
+      cardsElements.forEach(card => card.addEventListener('click', (event)=>{
+        let cardElement = event.currentTarget;
+        cardElement.classList.toggle('card--expanded');
+      }));
+
+      trackerTitle.innerHTML = 'Idioma: ' + data.lenguage;
+      trackerObjective.innerHTML = "Objetivo: " + data.objective;
+      trackerProgress.innerHTML = "Nivel: " + data.level;
+
+      totalProgressBar.style.width = data.totalProgress*100 +'%'; 
+    })();
+  
+  </script>
 </body>
 
 </html>

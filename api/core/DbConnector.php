@@ -43,6 +43,16 @@ class DbConnector
     return $data;
   }
 
+  public static function statementWithParams(string $sql, array $params)
+  {
+    $db = self::getInstance();
+    $statement = $db->con->prepare($sql);
+    $statement->execute($params);
+
+    $data = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+  }
+
   public static function insertStatement(string $sql, $params)
   {
     $db = self::getInstance();

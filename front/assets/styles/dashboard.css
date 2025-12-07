@@ -78,9 +78,9 @@ main {
   display: block;
 }
 
-.card.card--expanded {
-  cursor: default;
-}
+/* .card.card--expanded { */
+  /* cursor: default; */
+/* } */
 
 
 

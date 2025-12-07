@@ -37,7 +37,7 @@ class LearingPathController
     $generatedlearingPath = $generatedlearingPath->message->content;
     $generatedlearingPath = json_decode($generatedlearingPath);
 
-    $learingPath = new LearningPath($lenguage, $objective, $level, $generatedlearingPath->modules);
+    $learingPath = new LearningPath($lenguage, $level, $objective, $generatedlearingPath->modules);
     try {
       $learingPath->save();
     } catch (PDOException $e) {
@@ -50,5 +50,13 @@ class LearingPathController
     ]);
   }
 
-  public function show() {}
+  public function show()
+  {
+    $userId = $_SESSION['userId'];
+    $learningPath = LearningPath::findByUserId($userId);
+
+    return new Response(200, [
+      'data' => $learningPath,
+    ]);
+  }
 }

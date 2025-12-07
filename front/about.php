@@ -32,7 +32,7 @@
       <br>
       <p class="h3">Github: <br /><a target="_blank"
           href="https://github.com/Manuel-2/babel">https://github.com/Manuel-2/babel</a></p>
-      <a id='return' href="./index.html" class="main-button h3 bg-green button">Regresar</a>
+      <a id='return' href="./index.php" class="main-button h3 bg-green button">Regresar</a>
     </article>
   </main>
 </body>

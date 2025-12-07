@@ -35,5 +35,5 @@ try {
   http_response_code($res->statusCode);
   echo json_encode($res->body);
 } catch (Exception $e) {
-  $serverError($e->getMessage());
+  $GLOBALS['serverError']($e);
 }
