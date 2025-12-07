@@ -10,65 +10,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link href="../public/styles/normalize.css" rel="stylesheet">
-  <link href="../public/styles/babel.css" rel="stylesheet">
+  <link href="assets/styles/normalize.css" rel="stylesheet">
+  <link href="assets/styles/babel.css" rel="stylesheet">
 
   <!-- estillos especificos de esta vista  -->
-  <link href="../public/styles/exercies.css" rel="stylesheet">
+  <link href="assets/styles/exercies.css" rel="stylesheet">
 </head>
 
 <body>
-  <header class="header">
-    <div class="header-left soft-shadow">
-      <div>
-        <a class="header-logo" href="dashboard.html">
-          <img src="../public/imgs/Logo.svg" alt="">
-          <h3 class="h3">babel</h3>
-        </a>
-      </div>
-      <div>
-        <ul>
-          <li><a class="h4" href="./dashboard.html">Inicio</a></li>
-          <li><a class="h4" href="#">Acerca</a></li>
-        </ul>
-      </div>
-
-      <div class="burger-container">
-        <label for="burger-check" class="burger"></label>
-        <input type="checkbox" id="burger-check">
-        <nav class="burger-nav soft-shadow h4">
-          <ul>
-            <li><a href="dashboard.html">Inicio</a></li>
-            <li><a href="#">Acerca</a></li>
-            <li><a href="#">Cerrar Sesíon</a></li>
-            <li><a href="setup.html">Ajustes</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-    <div class="header-rigth">
-      <button type="button" class="soft-shadow"><img src="../public/imgs/Logout Icon.svg" alt=""></button>
-      <a href="#" class="soft-shadow h4 button">Ajustes</a>
-    </div>
-  </header>
+  <?php require_once('assets/components/header.php'); ?>
 
   <main class="exercice-container">
     <h1><span id="question-count">Question 2/3</span><br>What is the correct response to "How are you?"</h1>
     <div class="anwsers">
       <button type="button" class="anwser-option h3 not-selected correct">
         <p><span>A) <span>I'm fine, thank you.</p>
-        <img src="../public/imgs/wrong.svg" alt="wrong">
-        <img src="../public/imgs/correct.svg" alt="correct">
+        <img src="assets/imgs/wrong.svg" alt="wrong">
+        <img src="assets/imgs/correct.svg" alt="correct">
       </button>
       <button type="button" class="anwser-option h3 selected wrong">
         <p><span>B) <span>I'm fine, thank you.</p>
-        <img src="../public/imgs/wrong.svg" alt="wrong">
-        <img src="../public/imgs/correct.svg" alt="correct">
+        <img src="assets/imgs/wrong.svg" alt="wrong">
+        <img src="assets/imgs/correct.svg" alt="correct">
       </button>
       <button type="button" class="anwser-option h3 not-selected wrong">
         <p><span>C) <span>I'm fine, thank you.</p>
-        <img src="../public/imgs/wrong.svg" alt="wrong">
-        <img src="../public/imgs/correct.svg" alt="correct">
+        <img src="assets/imgs/wrong.svg" alt="wrong">
+        <img src="assets/imgs/correct.svg" alt="correct">
 
       </button>
     </div>
@@ -78,13 +46,13 @@
 
     <div class="control-left">
       <button type="button" class="button">
-        <img src="../public/imgs/Arrow.svg" alt="prev">
+        <img src="assets/imgs/Arrow.svg" alt="prev">
       </button>
     </div>
 
     <div class="control-rigth">
       <button type="button" class="button">
-        <img src="../public/imgs/Arrow.svg" alt="prev">
+        <img src="assets/imgs/Arrow.svg" alt="prev">
       </button>
     </div>
   </main>

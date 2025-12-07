@@ -26,6 +26,8 @@ if (isset($_SESSION['autenticated']) == false) {
 
 <body>
   <?php require_once("./assets/components/header.php"); ?>
+  <?php require_once('./assets/components/modal.php'); ?>
+
 
   <main>
     <section class="days-plan" id='daysPlanContainer'> 
@@ -38,7 +40,8 @@ if (isset($_SESSION['autenticated']) == false) {
       <ul id='trackerDaysContainer'>
         
       </ul>
-      <a href="exercies.php" class="main-button bg-purple-strong h4">Reanudar</a>
+      <input type="button" value="Reanudar" class="main-button button bg-purple-strong h4 exercise-button"/>
+      <!-- <a href="exercies.php" >Reanudar</a> -->
       <!-- relativos -->
       <div class=" bar bg-purple-ligth"></div>
       <div class="bar bar-fill bg-purple-strong" id='totalProgressBar'></div>
@@ -49,21 +52,23 @@ if (isset($_SESSION['autenticated']) == false) {
   </footer>
   <script>
     let dayCardTemplate = `
-      <div class="card soft-shadow" id="day%n%">
+      <div class="card soft-shadow %expand%" id="day%n%">
         <h4 >Day %n%: %module_title%</h4>
         <div class="card-content">
           <ul>
             <li class="paragraph">%sub_1%</li>
             <li class="paragraph">%sub_2%</li>
           </ul>
-          <a class="main-button bg-purple-strong h4" href="exercies.php">Practicar</a>
+          %isTheCurrentExercise%
         </div>
         <!-- relativos -->
         <div class="bar bg-purple-ligth"></div>
         <div class="bar bar-fill bg-purple-strong" style="width:calc(%progress%%);"></div>
       </div>`;
 
-
+    let isTheCurrentExerciseButton = 
+      `<input type="button" value="Reanudar" class="main-button button bg-purple-strong h4 exercise-button here" id="ayuda"/>`;
+          
     let travelButtonTemplate =`
         <li>
           <a href="#day%n%" class="paragraph %completed%">Dia %n% %module_title%</a>
@@ -78,7 +83,6 @@ if (isset($_SESSION['autenticated']) == false) {
       let data = await res.json();
       data = data.data;
 
-      console.log(data);
 
       for(let i = 0; i < data.modules.length; i++){
         let mod = data.modules[i];
@@ -87,6 +91,14 @@ if (isset($_SESSION['autenticated']) == false) {
         dayCardElement = dayCardElement.replace('%module_title%',mod.title);
         dayCardElement = dayCardElement.replace('%sub_1%',mod.subModules[0].title);
         dayCardElement = dayCardElement.replace('%sub_2%',mod.subModules[1].title);
+
+
+        if(data.currentModule == i){
+          dayCardElement = dayCardElement.replace('%isTheCurrentExercise%',isTheCurrentExerciseButton);
+          dayCardElement = dayCardElement.replace('%expand%',"");
+        }else{
+          dayCardElement = dayCardElement.replace('%isTheCurrentExercise%',"");
+        }
   
         let moduleProgress = mod.progress * 100;
         dayCardElement = dayCardElement.replace('%progress%',moduleProgress);
@@ -111,8 +123,46 @@ if (isset($_SESSION['autenticated']) == false) {
       trackerProgress.innerHTML = "Nivel: " + data.level;
 
       totalProgressBar.style.width = data.totalProgress*100 +'%'; 
+
     })();
-  
+
+    // let practiceButtons = document.getElementsByClassName('here');
+    // practiceButtons = Array.from(practiceButtons);
+    // console.log(practiceButtons);
+    // practiceButtons.forEach( element => {
+    //   element.addEventListener("click", (event)=>{
+    //     event.stopPropagation();
+    //     console.log('here');
+    //   })
+    // }); 
+
+    window.addEventListener('load', () => {
+    document.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('exercise-button')) {
+          showModal("Generando Ejercicios", "Esto puede demorar unos minutos");
+          let res = await fetch('/api/exercice',{method:"POST",credentials: 'include'});
+          if(res.status == 204){
+            window.location.href = "exercies.php";
+          }else{
+            let data = await res.json();
+            console.log(data);
+          }
+
+          // peticion post
+          // server genera el ejericio y lo guarda en la session
+          // redirijir a la vista del ejericio
+
+
+          // peticion get obtener ejericios generados previamente
+
+          //  - recivir todos los ejericiso y sus respuestas
+          //  - usuario responde cada pregunta, dar feedback instanteo sin peticionies
+          //  al final del cuestionario enviar las opciones qeu seleciono el usuario
+          //  revidor responde con los resultados          
+      }
+    });
+})
+
   </script>
 </body>
 

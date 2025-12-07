@@ -8,6 +8,14 @@ class LearingPathController
   {
     // TODO: guardar en una session un timestap con la ultima vez que se genero un plan de estudio y limita el rate de llamados a este metodo
 
+    $userId = $_SESSION['userId'];
+    try {
+      $previusLearningPath = LearningPath::findByUserId($userId);
+      $previusLearningPath->delete();
+    } catch (PDOException $e) {
+      $GLOBALS['serverError']($e);
+    }
+
     //TODO: CUrar las entradas esto estA PELIGROSOOOOOOO
     $lenguage = $_POST["language"];
     $objective = $_POST["objective"];

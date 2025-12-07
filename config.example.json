@@ -1,16 +1,15 @@
 {
-  "db":{
+  "db": {
     "databaseName": "",
     "host": "127.0.0.1",
     "user": "",
     "password": ""
   },
-  "mail":{
+  "mail": {
     "host": "",
     "port": 25,
     "userName": "email",
     "password": "password"
   },
-  "apiMode": "debug",
-  "IAServerToken": "tralalero tralala";
+  "apiMode": "debug"
 }

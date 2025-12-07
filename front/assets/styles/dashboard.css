@@ -47,7 +47,7 @@ main {
 
 .days-plan::before {
   border-left: 5px dotted var(--purple-main);
-  height: 85%;
+  height: 88%;
   content: "";
   position: absolute;
   top: 50px;
@@ -88,10 +88,11 @@ main {
   margin: 15px 0;
 }
 
-.card-content a {
+.card-content input {
   display: block;
   width: fit-content;
   margin: 0 auto;
+  cursor: default;
 }
 
 .tracker {

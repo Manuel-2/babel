@@ -26,6 +26,7 @@ if (isset($_SESSION['autenticated']) == false) {
 
 <body>
   <?php require_once("./assets/components/header.php"); ?>
+  <?php require_once('./assets/components/modal.php'); ?>
 
   <main>
     <h1>Generar plan de estudio!</h1>
@@ -68,13 +69,15 @@ if (isset($_SESSION['autenticated']) == false) {
         body: formData,
       };
 
+      showModal("Generando Plan de estudios", 'esto puede tomar un minuto...');
       let res = await fetch(endpoint, req);
       let data = await res.json();
 
-      console.log(res);
       if (res.status == 201) {
-        // TODO: mostar el modal con animacion de carga y cuandoo se genere el plan de estudios redijir al dashboard
         window.location.href = "dashboard.php";
+      }else{
+        console.log('fallo el server');
+        showModal("Exploto el server");
       }
     });
   </script>
