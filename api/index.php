@@ -25,6 +25,7 @@ $router = new Router();
 $router->add(new Endpoint('GET', '/users', UserController::class, 'show'));
 $router->add(new Endpoint('GET', '/learningpath', LearingPathController::class, 'show'));
 $router->add(new Endpoint('POST', '/learingpath', LearingPathController::class, 'create'));
+
 $router->add(new Endpoint('GET', '/exercise', ExerciseController::class, 'show'));
 $router->add(new Endpoint('POST', '/exercise', ExerciseController::class, 'create'));
 

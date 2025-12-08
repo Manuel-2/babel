@@ -1,0 +1,31 @@
+{
+  "exercises": [
+    {
+      "question": "Insert question acording to the theme here",
+      "options": [
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question"
+      ],
+      "awnser": "Insert here the corrent option index"
+    },
+    {
+      "question": "Insert question acording to the theme here",
+      "options": [
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question"
+      ],
+      "awnser": "Insert here the corrent option index"
+    },
+    {
+      "question": "Insert question acording to the theme here",
+      "options": [
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question",
+        "Insert a possible answer to the question"
+      ],
+      "awnser": "Insert here the corrent option index"
+    }
+  ]
+}

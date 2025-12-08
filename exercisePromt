@@ -1,0 +1,1 @@
+Write 3 questions in json for learning the lenguage: %lenguage% at level: %level%, about the theme: %theme% and more specifically about: %subTheme% vocabullary and grammar (not about knowledge of the theme). Write your result in json following the next structure: 

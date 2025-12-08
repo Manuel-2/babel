@@ -140,13 +140,13 @@ if (isset($_SESSION['autenticated']) == false) {
     document.addEventListener('click', async (e) => {
       if (e.target.classList.contains('exercise-button')) {
           showModal("Generando Ejercicios", "Esto puede demorar unos minutos");
-          let res = await fetch('/api/exercice',{method:"POST",credentials: 'include'});
-          if(res.status == 204){
-            window.location.href = "exercies.php";
+          let res = await fetch('/api/exercise',{method:"Post",credentials: 'include'});
+          let data = await res.json();
+          if(res.status == 201){
+            // window.location.href = "exercies.php";
           }else{
-            let data = await res.json();
-            console.log(data);
           }
+          console.log(data);
 
           // peticion post
           // server genera el ejericio y lo guarda en la session
