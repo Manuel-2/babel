@@ -1,31 +1,31 @@
 {
   "exercises": [
     {
-      "question": "Insert question acording to the theme here",
+      "question": "Inserta aquí una pregunta acorde al tema",
       "options": [
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question"
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta"
       ],
-      "awnser": "Insert here the corrent option index"
+      "awnser": "Inserta aquí el índice de la opción correcta, (entre 0 y 2)"
     },
     {
-      "question": "Insert question acording to the theme here",
+      "question": "Inserta aquí una pregunta acorde al tema",
       "options": [
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question"
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta"
       ],
-      "awnser": "Insert here the corrent option index"
+      "awnser": "Inserta aquí el índice de la opción correcta, (entre 0 y 2)"
     },
     {
-      "question": "Insert question acording to the theme here",
+      "question": "Inserta aquí una pregunta acorde al tema",
       "options": [
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question",
-        "Insert a possible answer to the question"
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta",
+        "Inserta una posible respuesta a la pregunta"
       ],
-      "awnser": "Insert here the corrent option index"
+      "awnser": "Inserta aquí el índice de la opción correcta, (entre 0 y 2)"
     }
   ]
 }
