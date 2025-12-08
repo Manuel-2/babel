@@ -143,8 +143,10 @@ if (isset($_SESSION['autenticated']) == false) {
           let res = await fetch('/api/exercise',{method:"Post",credentials: 'include'});
           let data = await res.json();
           if(res.status == 201){
-            // window.location.href = "exercies.php";
+            window.location.href = "exercies.php";
           }else{
+            showModal("Exploto el server", "Esto puede demorar unos minutos",true);
+
           }
           console.log(data);
 

@@ -11,7 +11,9 @@ class LearingPathController
     $userId = $_SESSION['userId'];
     try {
       $previusLearningPath = LearningPath::findByUserId($userId);
-      $previusLearningPath->delete();
+      if($previusLearningPath != false){
+        $previusLearningPath->delete();
+      }
     } catch (PDOException $e) {
       $GLOBALS['serverError']($e);
     }

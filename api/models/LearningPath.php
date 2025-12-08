@@ -72,11 +72,13 @@ class LearningPath
     DbConnector::statementWithParams('delete from learning_paths where id = ?', [$this->id]);
   }
 
-  public static function findByUserId(int $userId): LearningPath
+  public static function findByUserId(int $userId)
   {
-    $learingPathData  = DbConnector::statement("select * from learning_paths where user_id = $userId order by id")[0];
+    $learingPathData  = DbConnector::statementWithParams("select * from learning_paths where user_id = ?", [$userId])[0];
+    if($learingPathData == null) return false;
+
     $learingPathID = $learingPathData['id'];
-    $modulesData = DbConnector::statement("select * from modules where learning_path_id = $learingPathID");
+    $modulesData = DbConnector::statementWithParams("select * from modules where learning_path_id = ?", [$learingPathID]);
 
     $currentModule = 0;
     $currentSubmodule = 0;
