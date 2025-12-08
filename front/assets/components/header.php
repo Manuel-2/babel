@@ -28,9 +28,7 @@
   </div>
 
   <div class="header-rigth">
-    <?php if (isset($_SESSION['autenticated'])) { ?>
-      <button type="button" class="soft-shadow" id="logoutBtn"><img src="./assets/imgs/Logout Icon.svg" alt="logout"></button>
-    <?php } ?>
+      <button type="button" class="soft-shadow" id="logoutBtn" style="display:<?php isset($_SESSION['autenticated'])?'block':"none" ?> ;"><img src="./assets/imgs/Logout Icon.svg" alt="logout"></button>
     <a href="settings.php" class="soft-shadow h4 button">Ajustes</a>
   </div>
 
@@ -47,7 +45,9 @@
         window.location.href = 'index.php';
       }
     }
-    burgerLogout.addEventListener("click", logout);
-    logoutBtn.addEventListener('click', logout);
+    if(logoutBtn){
+      logoutBtn.addEventListener('click', logout);
+      burgerLogout.addEventListener("click", logout);
+    }
   </script>
 </header>

@@ -33,6 +33,8 @@ $router->add(new Endpoint('POST', '/exercise/Complete', ExerciseController::clas
 
 // Autentication related
 $router->add(new Endpoint('POST', '/users', UserController::class, 'create', false));
+$router->add(new Endpoint('POST', '/forgotPassword', UserController::class, 'forgotPassword', false));
+$router->add(new Endpoint('POST', '/newPassword', UserController::class, 'newPassword', false));
 $router->add(new Endpoint('POST', '/sessions', SessionController::class, 'login', false));
 $router->add(new Endpoint('DELETE', '/sessions', SessionController::class, 'logout', true));
 

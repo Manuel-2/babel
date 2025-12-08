@@ -41,10 +41,15 @@
         <img src="assets/imgs/correct.svg" alt="correct">
       </button>
     </div>
+    <button type="button" class="" id="next">
+        <h4>Siguiente</h4>
+        <img src="assets/imgs/Arrow.svg" alt="prev">
+    </button>
+
     <div id="feedbackContainer" style="display: none;">
-      <h4 class="feedback">What is the correct response to 'How are you?</h4>
-      <h4 class="feedback">What is the correct response to 'How are you?</h4>
-      <h4 class="feedback">What is the correct response to 'How are you?</h4>
+      <h4 id='fc1' class="feedback">What is the correct response to 'How are you?</h4>
+      <h4 id='fc2' class="feedback">What is the correct response to 'How are you?</h4>
+      <h4 id='fc3' class="feedback">What is the correct response to 'How are you?</h4>
       <input type="button" value="Reiniciar" class="main-button h3 button bg-purple-strong" id="finalButton"/>
     </div>
     <!-- Relativos -->
@@ -57,11 +62,11 @@
     <!--   </button> -->
     <!-- </div> -->
 
-    <div class="control-rigth">
-      <button type="button" class="button" id="next">
-        <img src="assets/imgs/Arrow.svg" alt="prev">
-      </button>
-    </div>
+    <!-- <div class="control-rigth"> -->
+      <!-- <button type="button" class="button" id="next"> -->
+      <!--   <img src="assets/imgs/Arrow.svg" alt="prev"> -->
+      <!-- </button> -->
+    <!-- </div> -->
   </main>
 
   <script>
@@ -138,6 +143,7 @@
         if(result){
           questions[i].classList.add("feedback-correct")
         }
+        questions[i].innerText = game.questions[i].question;
       });
       let correctAwsers = aserts.reduce((total,isCorrect)=>total+=isCorrect?1:0,0)
 
@@ -145,6 +151,8 @@
         finalButton.value = "Regresar";
         finalButton.onclick = ()=>{window.location.href = "dashboard.php"};
       }
+
+      next.style.display= "none";
 
       questionCount.innerText = "Resultados: " + correctAwsers + "/3";
       questionDisplay.innerText = "Tema: " + game.module + " > " + game.subModule;
@@ -170,6 +178,7 @@
           optionsButtons[i].classList.add("selected");
         }
       }
+
     }
 
     function removeFeedbackClases() {

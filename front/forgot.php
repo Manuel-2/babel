@@ -11,7 +11,7 @@ if (isset($_SESSION['autenticated'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Babel | Iniciar sesion</title>
+  <title> Babel | Recuperar contraseña</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,18 +26,17 @@ if (isset($_SESSION['autenticated'])) {
 
 <body>
   <?php require_once("./assets/components/header.php"); ?>
+  <?php require_once("./assets/components/modal.php"); ?>
   
   <main>
-    <h1>Iniciar Sesión</h1>
+    <h1>Recuperar contraseña</h1>
     <!-- todo: colocar la url/endpoint  -->
-    <form action="/api/sessions" method="post" id="form">
+    <form action="/api/forgotPassword" method="post" id="form">
       <label for="email-input" class="h3">Correo Electronico:</label>
-      <input type="email" id="email-input" name="email" value="" placeholder="correo@email.com" class="h3">
-      <label for="password-input" class="h3">Contraseña:</label>
-      <input type="password" id="password-input" name="password" value="" placeholder="*********" class="h3">
-      <input type="submit" value="Iniciar sesion" class="main-button bg-blue h3">
+      <input type="email" id="email-input" name="email" placeholder="correo@email.com" class="h3" required>
+      <input type="submit" value="Enviar Correo" class="main-button bg-blue h3">
     </form>
-    <a href="forgot.php" class="h4">Se me olvido mi contraseña</a>
+    <a href="./login.php" class="h4">¿Ya tienes cuenta? Inicia session</a>
     <a href="register.php" class="h4">¿No tienes cuenta? Registrate</a>
   </main>
 
@@ -46,6 +45,7 @@ if (isset($_SESSION['autenticated'])) {
       event.preventDefault();
       let method = event.target.method;
       let endpoint = event.target.action;
+      console.log(endpoint);
       let formData = new FormData(form);
 
         let req = {
@@ -56,8 +56,8 @@ if (isset($_SESSION['autenticated'])) {
         let res = await fetch(endpoint, req);
         let data = await res.json();
 
-        if (res.status == 201) {
-            window.location.href = './dashboard.php';
+        if (res.status == 200) {
+            showModal("Te hemos enviado un correo para restaurar tu contraseña");
         } else {
           //TODO: llamar a un metodo para mostrar le modal de alerta
         }

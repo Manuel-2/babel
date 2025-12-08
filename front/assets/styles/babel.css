@@ -402,6 +402,7 @@ header>.header-left>div:nth-child(2) a:hover {
 #modalContainer {
   --modal-height: 200px;
 
+  padding: 20px;
   width: 100%;
   height: var(--modal-height);
   background-image: repeating-linear-gradient(-45deg, white 0 25px, #EBEBEB 25px 50px);
