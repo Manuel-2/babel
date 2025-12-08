@@ -1,0 +1,6 @@
+To: 25lopezm25@gmail.com
+From: mape_23@alu.uabcs.mx
+Subject: Test from msmtp
+
+Hello from msmtp!
+

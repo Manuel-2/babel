@@ -1,4 +1,5 @@
-<!DOCTYPE.php>
+<!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,24 +30,8 @@
       </form>
       <hr>
       <br>
-      <h2>Plan de estudio
-      </h2>
-      <p class="h4">Idioma: Ingles</p>
-      <p class="h4">Nivel de dominio: Medio</p>
-      <p class="h4">Objetivo: Trabajo</p>
-      <h3>Temario:
-        <a id='setup' href="./setup.php" class="main-button paragraph button">Crear nuevo plan</a>
+      <a id='setup' href="./setup.php" class="main-button paragraph button">Crear nuevo plan</a>
       </h3>
-      <ol>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-        <li class="paragraph">verb to be</li>
-      </ol>
-
       <a id='return' href="./index.php" class="main-button h3 bg-green button">Regresar</a>
     </article>
   </main>
