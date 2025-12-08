@@ -30,6 +30,7 @@
   flex-direction: column;
   position: relative;
 }
+
 .anwser-option {
   display: flex;
   justify-content: space-between;
@@ -47,7 +48,36 @@
   box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
-.anwser-option:hover{
+#feedback-container{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.feedback {
+  height: 64px;
+  margin: 20px 0;
+  padding: 5px 15px;
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  border-radius: 8px;
+  border: 2px solid var(--red);
+  text-decoration: line-through;
+  color:var(--red-dark);
+}
+
+
+.feedback-correct {
+  border: 2px solid var(--green);
+  text-decoration: none;
+  color: var(--green-dark);
+}
+
+.anwser-option:hover {
   transform: scale(1.025);
   background-color: blue;
 }
@@ -64,24 +94,25 @@
   cursor: text;
 }
 
-.anwser-option>img{
+.anwser-option>img {
   position: relative;
   bottom: -4px;
   display: none;
 }
 
-.anwser-option.wrong>img[alt='wrong']{
+.anwser-option.wrong>img[alt='wrong'] {
   display: block;
 }
-.anwser-option.wrong>img[alt='correct']{
+
+.anwser-option.wrong>img[alt='correct'] {
   display: none;
 }
 
-.anwser-option.correct>img[alt='correct']{
+.anwser-option.correct>img[alt='correct'] {
   display: block;
 }
 
-.anwser-option.correct>img[alt='wrong']{
+.anwser-option.correct>img[alt='wrong'] {
   display: none;
 }
 

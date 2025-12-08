@@ -3,6 +3,33 @@
 class ExerciseController
 {
 
+  public function complete()
+  {
+    $userId = $_SESSION['userId'];
+    $LearningPath = LearningPath::findByUserId($userId);
+    $currentExercise = json_decode($_SESSION['currentExercise']);
+
+    $awnsers = json_decode($_POST['awnsers']);
+
+    $feedback = [];
+
+    $correctCount = 0;
+    for ($i = 0; $i  < 3; $i++) {
+      $actualAwser = $currentExercise->exercises[$i]->awnser;
+      $correct = $actualAwser == ($awnsers[$i]);
+      $feedback[] = $correct;
+      if ($correct) {
+        $correctCount++;
+      }
+    }
+
+    if ($correctCount == 3) {
+      $moduleId = $LearningPath->modules[$LearningPath->currentModule]['id'];
+      DbConnector::statementWithParams("update sub_modules set progress = 1 where module_id = ?",[$moduleId]);
+    }
+    return new Response(200, ["aserts" => $feedback]);
+  }
+
   public function create()
   {
     // TODO: limitar el rate de generacion de ejercicios 
@@ -43,9 +70,18 @@ class ExerciseController
     ]);
   }
 
-  public function show() {
-    return new Response(200,[
-      'exercise' => json_decode($_SESSION['currentExercise'])
+  public function show()
+  {
+    $userId = $_SESSION['userId'];
+    $LearningPath = LearningPath::findByUserId($userId);
+
+    $module = $LearningPath->modules[$LearningPath->currentModule]['title'];
+    $subModule = $LearningPath->modules[$LearningPath->currentModule]['subModules'][$LearningPath->currentSubmodule]['title'];
+
+    return new Response(200, [
+      'exercise' => json_decode($_SESSION['currentExercise']),
+      'module' => $module,
+      'subModule' => $subModule
     ]);
   }
 }

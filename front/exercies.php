@@ -22,8 +22,8 @@
   <?php require_once('./assets/components/modal.php'); ?>
 
   <main class="exercice-container">
-    <h1 id="questionCount"></h1>
-    <h1 id="questionDisplay"></h1>
+    <h2 id="questionCount">Resultados: 0/3</h2>
+    <h3 id="questionDisplay">Dia N: Grettings, Actividad: Saludos y presentaciones</h3>
     <div id="optionsContainer" class="anwsers">
       <button type="button" class="anwser-option h3" id="option_A">
         <p></p>
@@ -41,18 +41,24 @@
         <img src="assets/imgs/correct.svg" alt="correct">
       </button>
     </div>
+    <div id="feedbackContainer" style="display: none;">
+      <h4 class="feedback">What is the correct response to 'How are you?</h4>
+      <h4 class="feedback">What is the correct response to 'How are you?</h4>
+      <h4 class="feedback">What is the correct response to 'How are you?</h4>
+      <input type="button" value="Reiniciar" class="main-button h3 button bg-purple-strong" id="finalButton"/>
+    </div>
     <!-- Relativos -->
     <div class="progress-bar bg-purple-ligth"></div>
     <div class="progress-bar progress-bar--fill bg-purple-strong" id="progressFill"></div>
 
-    <div class="control-left">
-      <button type="button" class="button">
-        <img src="assets/imgs/Arrow.svg" alt="prev">
-      </button>
-    </div>
+    <!-- <div class="control-left"> -->
+    <!--   <button type="button" class="button"> -->
+    <!--     <img src="assets/imgs/Arrow.svg" alt="prev"> -->
+    <!--   </button> -->
+    <!-- </div> -->
 
     <div class="control-rigth">
-      <button type="button" class="button">
+      <button type="button" class="button" id="next">
         <img src="assets/imgs/Arrow.svg" alt="prev">
       </button>
     </div>
@@ -65,10 +71,18 @@
       userAwnsers: []
     };
     let feedbackVisible = false;
+    finalButton.onclick = ()=>{window.location.href = "exercies.php"};
 
-    let abc = 'abc';
+    let abc = 'ABC';
+
+    let optionsButtons = [
+      option_A,
+      option_B,
+      option_C
+    ];
 
     function renderNextQuestion() {
+      removeFeedbackClases();
       if (game.currentIndex >= 2) return;
 
       game.currentIndex++;
@@ -86,26 +100,92 @@
 
     function selectOption(event) {
       if (feedbackVisible) return;
-      let optionIndex = event.target.id.split('_')[1];
+      let letter = event.currentTarget.id.split('_')[1];
+      let optionIndex = abc.indexOf(letter);
       game.userAwnsers.push(optionIndex);
 
       feedbackVisible = true;
-      //todo: show feedback
-      setTimeout(() => {
-        feedbackVisible = false;
-        renderNextQuestion();
-        if (game.userAwnsers.length == 3) {
-          console.log(game);
-        }
-      }, 2000);
+      showFeedback(optionIndex)
+      feedbackVisible = false;
+      if (game.userAwnsers.length == 3) {
+        sendExercices();
+      }
     }
 
-    function showFeedback() {
+    async function sendExercices() {
+      const form = new FormData();
+      form.append("awnsers", JSON.stringify(game.userAwnsers));
+      let req = {
+        method: "POST",
+        credentials: "include",
+        body: form,
+      };
 
+      const res = await fetch("api/exercise/Complete", req);
+      const data = await res.json();
+
+      if(res.status == 200){
+        showResults(data.aserts);
+      }else{
+        showModal("Exploto el server","No se consiguio una respuesta del servidor >:(",true);
+      }
+    }
+
+    function showResults(aserts){
+      let questions = feedbackContainer.querySelectorAll("h4");
+
+      aserts.forEach((result,i) =>{
+        if(result){
+          questions[i].classList.add("feedback-correct")
+        }
+      });
+      let correctAwsers = aserts.reduce((total,isCorrect)=>total+=isCorrect?1:0,0)
+
+      if(correctAwsers == 3){
+        finalButton.value = "Regresar";
+        finalButton.onclick = ()=>{window.location.href = "dashboard.php"};
+      }
+
+      questionCount.innerText = "Resultados: " + correctAwsers + "/3";
+      questionDisplay.innerText = "Tema: " + game.module + " > " + game.subModule;
+      optionsContainer.style.display = "none";
+      feedbackContainer.style.display = 'block';
+    }
+
+
+    function showFeedback(selectedOption) {
+      let currentQuestion = game.questions[game.currentIndex];
+
+      for (let i = 0; i < 3; i++) {
+        optionsButtons[i].classList.add("wrong");
+        optionsButtons[i].classList.add("not-selected")
+
+        if (currentQuestion.awnser == parseInt(i)) {
+          optionsButtons[i].classList.remove("wrong");
+          optionsButtons[i].classList.add("correct");
+        }
+
+        if (selectedOption == i) {
+          optionsButtons[i].classList.remove("not-selected");
+          optionsButtons[i].classList.add("selected");
+        }
+      }
     }
 
     function removeFeedbackClases() {
+      option_A.classList.remove('selected');
+      option_A.classList.remove("not-selected");
+      option_B.classList.remove('selected');
+      option_B.classList.remove("not-selected");
+      option_C.classList.remove('selected');
+      option_C.classList.remove("not-selected");
 
+      option_A.classList.remove('wrong');
+      option_A.classList.remove("correct");
+      option_B.classList.remove('wrong');
+      option_B.classList.remove("correct");
+      option_C.classList.remove('wrong');
+      option_C.classList.remove("correct");
     }
 
     (async function() {
@@ -114,9 +194,11 @@
       });
       let data = await res.json();
       game.questions = data.exercise.exercises;
-      console.log(game);
+      game.module = data.module;
+      game.subModule = data.subModule;
       renderNextQuestion()
 
+      next.addEventListener("click", renderNextQuestion);
       option_A.addEventListener("click", selectOption);
       option_B.addEventListener("click", selectOption);
       option_C.addEventListener("click", selectOption);

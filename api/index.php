@@ -28,6 +28,7 @@ $router->add(new Endpoint('POST', '/learingpath', LearingPathController::class, 
 
 $router->add(new Endpoint('GET', '/exercise', ExerciseController::class, 'show'));
 $router->add(new Endpoint('POST', '/exercise', ExerciseController::class, 'create'));
+$router->add(new Endpoint('POST', '/exercise/Complete', ExerciseController::class, 'complete'));
 
 // Autentication related
 $router->add(new Endpoint('POST', '/users', UserController::class, 'create', false));
