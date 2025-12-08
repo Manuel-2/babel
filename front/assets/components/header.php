@@ -20,7 +20,7 @@
         <ul>
           <li><a href="dashboard.php">Inicio</a></li>
           <li><a href="about.php">Acerca</a></li>
-          <li><a href="index.php">Cerrar Sesíon</a></li>
+          <li><a id="burgerLogout" href="#">Cerrar Sesíon</a></li>
           <li><a href="settings.php">Ajustes</a></li>
         </ul>
       </nav>
@@ -35,7 +35,7 @@
   </div>
 
   <script>
-    logoutBtn.addEventListener('click', async () => {
+    async function logout() {
       let req = {
         method: "DELETE",
         credentials: 'include',
@@ -46,6 +46,8 @@
       if (res.status == 200) {
         window.location.href = 'index.php';
       }
-    });
+    }
+    burgerLogout.addEventListener("click", logout);
+    logoutBtn.addEventListener('click', logout);
   </script>
 </header>

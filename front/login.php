@@ -35,7 +35,7 @@ if (isset($_SESSION['autenticated'])) {
       <input type="email" id="email-input" name="email" value="" placeholder="correo@email.com" class="h3">
       <label for="password-input" class="h3">Contraseña:</label>
       <input type="password" id="password-input" name="password" value="" placeholder="*********" class="h3">
-      <input type="submit" value="Registar" class="main-button bg-blue h3">
+      <input type="submit" value="Iniciar sesion" class="main-button bg-blue h3">
     </form>
     <a href="register.php" class="h4">¿No tienes cuenta? Registrate</a>
   </main>
